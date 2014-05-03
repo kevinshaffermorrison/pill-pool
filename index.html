@@ -26,7 +26,7 @@
 	<br>
 		<select class="form-control" style="width:50%;float:right" id="num_balls">
 				<option selected disabled value="default">Balls per Player</option>
-<option value="1">1</option>
+<!--<option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
 <option value="4">4</option>
@@ -40,7 +40,7 @@
 <option value="12">12</option>
 <option value="13">13</option>
 <option value="14">14</option>
-<option value="15">15</option>
+<option value="15">15</option>-->
 		</select>
 		<select class="form-control" style="width:50%;float:left" id="num_players">
 		<option selected disabled value="default">Players</option>
@@ -60,8 +60,8 @@
 <option value="14">14</option>
 <option value="15">15</option>
 		</select><br><br>
-        <button class="btn btn-primary btn-block" href="" id="new_game" >New Game</button>
-        <button onclick="updatePlayerModal(1)" style="display:none"  class="btn btn-default btn-block" id="1" data-toggle="modal" data-target="#ballsModal">Show Player 1's Balls</button>
+		<button class="btn btn-primary btn-block" href="" id="new_game" >New Game</button>
+<button onclick="updatePlayerModal(1)" style="display:none"  class="btn btn-default btn-block" id="1" data-toggle="modal" data-target="#ballsModal">Show Player 1's Balls</button>
 <button onclick="updatePlayerModal(2)" style="display:none"  class="btn btn-success btn-block" id="2" data-toggle="modal" data-target="#ballsModal">Show Player 2's Balls</button>
 <button onclick="updatePlayerModal(3)" style="display:none"  class="btn btn-default btn-block" id="3" data-toggle="modal" data-target="#ballsModal">Show Player 3's Balls</button>
 <button onclick="updatePlayerModal(4)" style="display:none"  class="btn btn-success btn-block" id="4" data-toggle="modal" data-target="#ballsModal">Show Player 4's Balls</button>
@@ -112,6 +112,17 @@
 </body>
 <script>
   $(function() {
+		$("#num_players").change(function(){
+	  	var num_players=$("#num_players").val();
+	  	var	max_balls = Math.floor(15/num_players);
+	  	console.log(max_balls);
+	  	for (i=1;i<=15;i++){
+		  	$("#num_balls option[value="+String(i)+"]").remove();		  	
+	  	}	
+	  	for(i=1;i<=max_balls;i++){
+				$("#num_balls").append('<option value="'+String(i)+'">'+String(i)+'</option>');			  	
+	  	}
+		});
     BallsLeft = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
 
   	$("#new_game").click(Setup);
@@ -120,7 +131,7 @@
 
 	  	num_players=$("#num_players").val();
 	  	num_balls=$("#num_balls").val();
-	  	if (num_balls*num_players > 15 || num_players>8 || num_players < 1 || num_balls < 1){
+	  	if (num_balls*num_players > 15 ){
 		  	alert("That's not gonna work!");
 		  	$("#num_players option[value=default]").attr('selected', 'selected');
 		  	$("#num_balls option[value=default]").attr('selected', 'selected');
