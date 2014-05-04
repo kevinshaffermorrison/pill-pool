@@ -44,3 +44,20 @@ body {
         transform:rotate(360deg);
     }
 }
+
+.footer {
+	position:relative;
+	text-align: center;
+	height:80px;
+	width:100%;
+	color:lightgrey;
+	bottom:0;
+}
+.footer > small > a {
+	color:lightgrey;
+}
+.footer > small >a:hover {
+	color:lightgrey;
+	font-weight:bold;
+	text-decoration: none;
+}
