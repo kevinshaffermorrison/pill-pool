@@ -3,20 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>Pill Pool</title>
-	<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="apple-touch-icon" href="img/touch-icon-iphone.png" /> 
+		<link rel="apple-touch-icon" sizes="76x76" href="img/touch-icon-ipad.png" /> 
+		<link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.png" />   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kevin Shaffer">
-    <meta name="copyright" content="March 2014">
+    <meta name="copyright" content="May 2014">
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/sprites.css" rel="stylesheet">
-		<link rel="apple-touch-icon" href="img/touch-icon-iphone.png" /> 
-		<link rel="apple-touch-icon" sizes="76x76" href="img/touch-icon-ipad.png" /> 
-		<link rel="apple-touch-icon" sizes="120x120" href="img/touch-icon-iphone-retina.png" />
-		<link rel="apple-touch-icon" sizes="152x152" href="img/touch-icon-ipad-retina.png" />
-        
+     
 
 <!-- HTML5 shim for IE backwards compatibility -->
     <!--[if lt IE 9]>
@@ -98,7 +99,7 @@
 <span onclick='toggleOpacity(13)' style='text-align:center;margin:0px 2px 0px 2px;opacity:.25' id='left$i' class='ball13 ballz ballAnimate'></span>
 <span onclick='toggleOpacity(14)' style='text-align:center;margin:0px 2px 0px 2px;opacity:.25' id='left$i' class='ball14 ballz ballAnimate'></span>
 <span onclick='toggleOpacity(15)' style='text-align:center;margin:0px 2px 0px 2px;opacity:.25' id='left$i' class='ball15 ballz ballAnimate'></span>
-		</div>
+		<br><br></div>
 		<div class="modal fade " id="ballsModal">
 		  <div class="modal-dialog ">
 		    <div class="modal-content">
@@ -112,6 +113,9 @@
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	</div></div>
+</div>
+<div class="footer">
+<small>&copy; 2014 <a href="http://www.kevinashaffer.com">Kevin Shaffer</a></small>
 </div>
 </body>
 <script>
@@ -149,7 +153,7 @@
 	  	$(".ballz").toggleClass("ballAnimate");
 			setTimeout(function(){$(".ballz").toggleClass("ballAnimate"),1100});
 		  	new_game(num_balls,num_players); 
-				for (j=1;j<=8;j++){
+				for (j=1;j<=15;j++){
 					$("#"+String(j)).hide();
 				}		
 				for (j=1;j<=num_players;j++){
