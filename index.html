@@ -11,8 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kevin Shaffer">
     <meta name="copyright" content="May 2014">
+
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-ui.js"></script>		
+		<link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -66,21 +69,21 @@
 <option value="15">15</option>
 		</select><br><br>
 		<button class="btn btn-primary btn-block" href="" id="new_game" >New Game</button>
-<button onclick="updatePlayerModal(1)" style="display:none"  class="btn btn-default btn-block" id="1" data-toggle="modal" data-target="#ballsModal">Show Player 1's Balls</button>
-<button onclick="updatePlayerModal(2)" style="display:none"  class="btn btn-success btn-block" id="2" data-toggle="modal" data-target="#ballsModal">Show Player 2's Balls</button>
-<button onclick="updatePlayerModal(3)" style="display:none"  class="btn btn-default btn-block" id="3" data-toggle="modal" data-target="#ballsModal">Show Player 3's Balls</button>
-<button onclick="updatePlayerModal(4)" style="display:none"  class="btn btn-success btn-block" id="4" data-toggle="modal" data-target="#ballsModal">Show Player 4's Balls</button>
-<button onclick="updatePlayerModal(5)" style="display:none"  class="btn btn-default btn-block" id="5" data-toggle="modal" data-target="#ballsModal">Show Player 5's Balls</button>
-<button onclick="updatePlayerModal(6)" style="display:none"  class="btn btn-success btn-block" id="6" data-toggle="modal" data-target="#ballsModal">Show Player 6's Balls</button>
-<button onclick="updatePlayerModal(7)" style="display:none"  class="btn btn-default btn-block" id="7" data-toggle="modal" data-target="#ballsModal">Show Player 7's Balls</button>
-<button onclick="updatePlayerModal(8)" style="display:none"  class="btn btn-success btn-block" id="8" data-toggle="modal" data-target="#ballsModal">Show Player 8's Balls</button>
-<button onclick="updatePlayerModal(9)" style="display:none"  class="btn btn-default btn-block" id="9" data-toggle="modal" data-target="#ballsModal">Show Player 9's Balls</button>
-<button onclick="updatePlayerModal(10)" style="display:none"  class="btn btn-success btn-block" id="10" data-toggle="modal" data-target="#ballsModal">Show Player 10's Balls</button>
-<button onclick="updatePlayerModal(11)" style="display:none"  class="btn btn-default btn-block" id="11" data-toggle="modal" data-target="#ballsModal">Show Player 11's Balls</button>
-<button onclick="updatePlayerModal(12)" style="display:none"  class="btn btn-success btn-block" id="12" data-toggle="modal" data-target="#ballsModal">Show Player 12's Balls</button>
-<button onclick="updatePlayerModal(13)" style="display:none"  class="btn btn-default btn-block" id="13" data-toggle="modal" data-target="#ballsModal">Show Player 13's Balls</button>
-<button onclick="updatePlayerModal(14)" style="display:none"  class="btn btn-success btn-block" id="14" data-toggle="modal" data-target="#ballsModal">Show Player 14's Balls</button>
-<button onclick="updatePlayerModal(15)" style="display:none"  class="btn btn-default btn-block" id="15" data-toggle="modal" data-target="#ballsModal">Show Player 15's Balls</button>
+<button onclick="updatePlayerModal(1)" style="display:none"  class="btn btn-default btn-block" id="1" >Show Player 1's Balls</button>
+<button onclick="updatePlayerModal(2)" style="display:none"  class="btn btn-success btn-block" id="2" >Show Player 2's Balls</button>
+<button onclick="updatePlayerModal(3)" style="display:none"  class="btn btn-default btn-block" id="3" >Show Player 3's Balls</button>
+<button onclick="updatePlayerModal(4)" style="display:none"  class="btn btn-success btn-block" id="4" >Show Player 4's Balls</button>
+<button onclick="updatePlayerModal(5)" style="display:none"  class="btn btn-default btn-block" id="5" >Show Player 5's Balls</button>
+<button onclick="updatePlayerModal(6)" style="display:none"  class="btn btn-success btn-block" id="6" >Show Player 6's Balls</button>
+<button onclick="updatePlayerModal(7)" style="display:none"  class="btn btn-default btn-block" id="7" >Show Player 7's Balls</button>
+<button onclick="updatePlayerModal(8)" style="display:none"  class="btn btn-success btn-block" id="8" >Show Player 8's Balls</button>
+<button onclick="updatePlayerModal(9)" style="display:none"  class="btn btn-default btn-block" id="9" >Show Player 9's Balls</button>
+<button onclick="updatePlayerModal(10)" style="display:none"  class="btn btn-success btn-block" id="10" >Show Player 10's Balls</button>
+<button onclick="updatePlayerModal(11)" style="display:none"  class="btn btn-default btn-block" id="11" >Show Player 11's Balls</button>
+<button onclick="updatePlayerModal(12)" style="display:none"  class="btn btn-success btn-block" id="12" >Show Player 12's Balls</button>
+<button onclick="updatePlayerModal(13)" style="display:none"  class="btn btn-default btn-block" id="13" >Show Player 13's Balls</button>
+<button onclick="updatePlayerModal(14)" style="display:none"  class="btn btn-success btn-block" id="14" >Show Player 14's Balls</button>
+<button onclick="updatePlayerModal(15)" style="display:none"  class="btn btn-default btn-block" id="15" >Show Player 15's Balls</button>
 		<br>
 		<div  style="text-align:center" class="col-sm-12">
 		<span id="allBalls" style="display:none;color:white">Tap ball when potted</span><br><br>
@@ -99,28 +102,26 @@
 <span onclick='toggleOpacity(13)' style='text-align:center;margin:0px 2px 0px 2px;opacity:.25' id='left$i' class='ball13 ballz ballAnimate'></span>
 <span onclick='toggleOpacity(14)' style='text-align:center;margin:0px 2px 0px 2px;opacity:.25' id='left$i' class='ball14 ballz ballAnimate'></span>
 <span onclick='toggleOpacity(15)' style='text-align:center;margin:0px 2px 0px 2px;opacity:.25' id='left$i' class='ball15 ballz ballAnimate'></span>
-		<br><br></div>
-		<div class="modal fade " id="ballsModal">
-		  <div class="modal-dialog ">
-		    <div class="modal-content">
-		      <div style="background:lightgrey" class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h4 class="modal-title">Player One's Balls</h4>
-		      </div>
-		      <div style="background:grey" class="modal-body">
-
-		    </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-	</div></div>
+		<br><br>
+		
+		</div>
+<div id="ballDialog" title="Player Balls">
+</div>	</div></div>
 </div>
 <div class="footer">
 <small>&copy; 2014 <a href="http://www.kevinashaffer.com">Kevin Shaffer</a></small>
 </div>
 </body>
+<style>
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+</style>
 <script>
   $(function() {
+
 		$("#num_players").change(function(){
+		
 	  	var num_players=$("#num_players").val();
 	  	var	max_balls = Math.floor(15/num_players);
 	  	console.log(max_balls);
@@ -182,17 +183,32 @@
 	}
 	
 	function updatePlayerModal(number){
+	
 	var balls = String(Players[number].sort(function(a,b){return a - b}))
 	//balls = "Your "+keyword+balls.substring(0,balls.length-1).replace(/,/g,', ');
-
 	var body = "";
-	var opacs = new Array(num_balls);
 	for (i=0;i<num_balls;i++){
 		var cO = $(".ball"+String(Players[number][i])).css('opacity');
 		body+='<span 	style="margin:0px 5px 0px 0px;opacity:'+String(cO)+'" class="ball'+String(Players[number][i])+'"></span>';
 	}
-	$(".modal-body").html("<div style='text-align:center'>"+body+"</div>");	
-	$(".modal-title").text("Player "+number+" Balls");
+$( "#ballDialog" ).dialog({
+	position: { my: "center",of:body },
+	width:'100%',
+	modal:true,
+	closeOnEscape:true,
+  dialogClass: "no-close",
+  buttons: [
+    {
+      text: "Done",
+      click: function() {
+        $( this ).dialog( "close" );
+      }
+    }
+  ]
+});
+$("#ballDialog").html("<br><div style='text-align:center'>"+body+"</div>");	
+$('#ballDialog').dialog('option', 'title', 'Player '+number+"' Balls");
+
 	}
 	
   function new_game(num_balls,num_players){
