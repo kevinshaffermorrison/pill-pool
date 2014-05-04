@@ -11,15 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kevin Shaffer">
     <meta name="copyright" content="May 2014">
-<!--- fooooo -->
-		<script src="js/jquery.js"></script>
-		<script src="js/jquery-ui.js"></script>		
-		<script src="js/bootstrap.min.js"></script>		
-		<link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+		<link href="css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/sprites.css" rel="stylesheet">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-ui.js"></script>		
+		<script src="js/bootstrap.min.js"></script>		
+
      
 
 <!-- HTML5 shim for IE backwards compatibility -->
@@ -33,21 +33,6 @@
 	<br>
 		<select class="form-control" style="width:50%;float:right" id="num_balls">
 				<option selected disabled value="default">Balls per Player</option>
-<!--<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-<option value="11">11</option>
-<option value="12">12</option>
-<option value="13">13</option>
-<option value="14">14</option>
-<option value="15">15</option>-->
 		</select>
 		<select class="form-control" style="width:50%;float:left" id="num_players">
 		<option selected disabled value="default">Players</option>
@@ -68,21 +53,21 @@
 <option value="15">15</option>
 		</select><br><br>
 		<button class="btn btn-primary btn-block" href="" id="new_game" >New Game</button>
-<button onclick="updatePlayerModal(1)" style="display:none"  class="btn btn-default btn-block" id="1" >Show Player 1's Balls</button>
-<button onclick="updatePlayerModal(2)" style="display:none"  class="btn btn-success btn-block" id="2" >Show Player 2's Balls</button>
-<button onclick="updatePlayerModal(3)" style="display:none"  class="btn btn-default btn-block" id="3" >Show Player 3's Balls</button>
-<button onclick="updatePlayerModal(4)" style="display:none"  class="btn btn-success btn-block" id="4" >Show Player 4's Balls</button>
-<button onclick="updatePlayerModal(5)" style="display:none"  class="btn btn-default btn-block" id="5" >Show Player 5's Balls</button>
-<button onclick="updatePlayerModal(6)" style="display:none"  class="btn btn-success btn-block" id="6" >Show Player 6's Balls</button>
-<button onclick="updatePlayerModal(7)" style="display:none"  class="btn btn-default btn-block" id="7" >Show Player 7's Balls</button>
-<button onclick="updatePlayerModal(8)" style="display:none"  class="btn btn-success btn-block" id="8" >Show Player 8's Balls</button>
-<button onclick="updatePlayerModal(9)" style="display:none"  class="btn btn-default btn-block" id="9" >Show Player 9's Balls</button>
-<button onclick="updatePlayerModal(10)" style="display:none"  class="btn btn-success btn-block" id="10" >Show Player 10's Balls</button>
-<button onclick="updatePlayerModal(11)" style="display:none"  class="btn btn-default btn-block" id="11" >Show Player 11's Balls</button>
-<button onclick="updatePlayerModal(12)" style="display:none"  class="btn btn-success btn-block" id="12" >Show Player 12's Balls</button>
-<button onclick="updatePlayerModal(13)" style="display:none"  class="btn btn-default btn-block" id="13" >Show Player 13's Balls</button>
-<button onclick="updatePlayerModal(14)" style="display:none"  class="btn btn-success btn-block" id="14" >Show Player 14's Balls</button>
-<button onclick="updatePlayerModal(15)" style="display:none"  class="btn btn-default btn-block" id="15" >Show Player 15's Balls</button>
+<button onclick="verifyPassword(1)" style="display:none"  class="btn btn-default btn-block" id="1" >Show Player 1's Balls</button>
+<button onclick="verifyPassword(2)" style="display:none"  class="btn btn-success btn-block" id="2" >Show Player 2's Balls</button>
+<button onclick="verifyPassword(3)" style="display:none"  class="btn btn-default btn-block" id="3" >Show Player 3's Balls</button>
+<button onclick="verifyPassword(4)" style="display:none"  class="btn btn-success btn-block" id="4" >Show Player 4's Balls</button>
+<button onclick="verifyPassword(5)" style="display:none"  class="btn btn-default btn-block" id="5" >Show Player 5's Balls</button>
+<button onclick="verifyPassword(6)" style="display:none"  class="btn btn-success btn-block" id="6" >Show Player 6's Balls</button>
+<button onclick="verifyPassword(7)" style="display:none"  class="btn btn-default btn-block" id="7" >Show Player 7's Balls</button>
+<button onclick="verifyPassword(8)" style="display:none"  class="btn btn-success btn-block" id="8" >Show Player 8's Balls</button>
+<button onclick="verifyPassword(9)" style="display:none"  class="btn btn-default btn-block" id="9" >Show Player 9's Balls</button>
+<button onclick="verifyPassword(10)" style="display:none"  class="btn btn-success btn-block" id="10" >Show Player 10's Balls</button>
+<button onclick="verifyPassword(11)" style="display:none"  class="btn btn-default btn-block" id="11" >Show Player 11's Balls</button>
+<button onclick="verifyPassword(12)" style="display:none"  class="btn btn-success btn-block" id="12" >Show Player 12's Balls</button>
+<button onclick="verifyPassword(13)" style="display:none"  class="btn btn-default btn-block" id="13" >Show Player 13's Balls</button>
+<button onclick="verifyPassword(14)" style="display:none"  class="btn btn-success btn-block" id="14" >Show Player 14's Balls</button>
+<button onclick="verifyPassword(15)" style="display:none"  class="btn btn-default btn-block" id="15" >Show Player 15's Balls</button>
 		<br>
 		<div  style="text-align:center" class="row">
 		<span id="allBalls" style="display:none;color:white">Tap ball when potted</span><br><br>
@@ -104,115 +89,298 @@
 		<br><br>
 		
 		</div>
-<div id="ballDialog" title="Player Balls">
-</div>	</div></div>
+<div id="ballDialog" title="Player Balls"></div>
+<div id="passDialog" title="Password Validation"></div>
+<div id="changePassDialog" title="Change Password"></div>
+<div style="text-align:center" id="settingsDialog" title="Change Names">
+	
 </div>
-<div class="footer">
+	</div></div>
+</div>
+<div class="footer"><br>
+<span id="Settings">Settings</span> <br><br>
 <small>&copy; 2014 <a href="http://www.kevinashaffer.com">Kevin Shaffer</a></small>
 </div>
 </body>
-<style>
-.no-close .ui-dialog-titlebar-close {
-  display: none;
-}
-</style>
+
 <script>
-  $(function() {
-
-		$("#num_players").change(function(){
+$(function() {
+	// Initialize Stuff
+  num_players = 1;
+  playerNames = new Array('Player 0',
+  'Player 1','Player 2','Player 3','Player 4','Player 5',
+  'Player 6','Player 7','Player 8','Player 9','Player 10',
+  'Player 11','Player 12','Player 13','Player 14','Player 15');
+  playerPasswords = new Array('','','','','','','','','','','','','','','','');
+  BallsLeft = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
+	$("#new_game").click(Setup);
+	
+});
 		
-	  	var num_players=$("#num_players").val();
-	  	var	max_balls = Math.floor(15/num_players);
-	  	console.log(max_balls);
-	  	for (i=1;i<=15;i++){
-		  	$("#num_balls option[value="+String(i)+"]").remove();		  	
-	  	}	
-	  	for(i=1;i<=max_balls;i++){
-				$("#num_balls").append('<option value="'+String(i)+'">'+String(i)+'</option>');			  	
-	  	}
-		});
-    BallsLeft = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
+	function Setup(){
+	// Get number of balls and players
+  	num_players=$("#num_players").val();
+  	num_balls=$("#num_balls").val();
+  	var ballsNum = Number(num_balls);
+  	var playersNum = Number(num_balls);
+  	console.log(ballsNum*playersNum);
+  	if (playersNum*ballsNum > 15 || playersNum*ballsNum < 1){
+  	// Makes sure values work
+	  	$("#num_players option[value=default]").attr('selected', 'selected');
+	  	$("#num_balls option[value=default]").attr('selected', 'selected');
 
-  	$("#new_game").click(Setup);
-  	});
-  	function Setup(){
-
-	  	num_players=$("#num_players").val();
-	  	num_balls=$("#num_balls").val();
-	  	var ballsNum = Number(num_balls);
-	  	var playersNum = Number(num_balls);
-	  	console.log(ballsNum*playersNum);
-	  	if (playersNum*ballsNum > 15 || playersNum*ballsNum < 1){
-		  	$("#num_players option[value=default]").attr('selected', 'selected');
-		  	$("#num_balls option[value=default]").attr('selected', 'selected');
-
-				for (j=1;j<=8;j++){
-					$("#"+String(j)).hide();
-				}	
-	  	}
-	  	else {
+			for (j=1;j<=15;j++){
+				$("#"+String(j)).hide();
+			}	
+  	}
+  	else {
+	  	// Show tap ball when potted text
 	  	$("#allBalls").show();
+	  	// Animate all the balls
 	  	$(".ballz").toggleClass("ballAnimate");
 			setTimeout(function(){$(".ballz").toggleClass("ballAnimate"),1100});
-		  	new_game(num_balls,num_players); 
-				for (j=1;j<=15;j++){
-					$("#"+String(j)).hide();
-				}		
-				for (j=1;j<=num_players;j++){
-					$("#"+String(j)).show();
-				}	
-	  	}
-  	};
+			//start new game and show correct player buttons
+	  	new_game(num_balls,num_players); 
+			for (j=1;j<=15;j++){
+				$("#"+String(j)).hide();
+			}		
+			for (j=1;j<=num_players;j++){
+				$("#"+String(j)).show();
+			}	
+  	}
+	} // Setup
+
+
+	$("#num_players").change(function(){
+	// makes select options only show possible values	
+  	num_players=$("#num_players").val();
+  	var max_balls = Math.floor(15/num_players);
+  	console.log(max_balls);
+  	for (i=1;i<=15;i++){
+	  	$("#num_balls option[value="+String(i)+"]").remove();		  	
+  	}	
+  	for(i=1;i<=max_balls;i++){
+			$("#num_balls").append('<option value="'+String(i)+'">'+String(i)+'</option>');			  	
+  	}
+	}); // Select Active Switching
+
+
+  $("#Settings").click(function(){
+  	// Build dialog body
+  	$("#settingsDialog").append("<table>");
+  	for (i=1;i<=num_players;i++){
+  	$("#settingsDialog").append("<tr><td>"+playerNames[i]+"'s Name: </td><td><input style='width:100px;margin-left:5px' type='text' id='playerName"+String(i)+"' value=''></td></tr>");}
+  	$("#settingsDialog").append("</table>");
+  	// Initialize Dialog
+		$( "#settingsDialog" ).dialog({
+			position: { my: "center" },
+			width:'100%',
+			modal:true,
+			closeOnEscape:true,
+		  dialogClass: "no-close",
+		  buttons: [
+		  	{
+		    	class:"btn btn-default",
+		      text: "Cancel",
+		      click: function() {
+			      $('#settingsDialog').html("");
+			      $( this ).dialog( "close" );
+		      }
+		    },
+		    {
+		    	class:"btn btn-default",
+		      text: "Confim",
+		      id:'submitNames',
+		      click: function() {
+		      	// Updates player names
+				  	for (i=1;i<=num_players;i++){
+			  			var $name = $("#playerName"+String(i)).val();
+			  			if ($name!==""){
+								playerNames[i] = $name;
+								$("#"+String(i)).text('Show '+playerNames[i]+"'s Balls");
+							}
+						}			    	
+		      	$('#settingsDialog').html("");
+		        $( this ).dialog( "close" );
+		      }
+		    }
+		  ]
+		});
+  }); // Settings Dialog
+
+
 	function toggleOpacity(number){
-
-
+		// Get current ball state
 		var currentOpacity = $(".ball"+String(number)).css('opacity');
 		if (currentOpacity === '1' ){
-		BallsLeft.removeByValue(number);
-		$(".ball"+String(number)).fadeTo(50,.25);
+			// if ball wasn't shaded, remove from balls left and shade it 
+			BallsLeft.removeByValue(number);
+			$(".ball"+String(number)).fadeTo(50,.25);
 		}
 		else {
-		BallsLeft.push(number);
-		$(".ball"+String(number)).fadeTo(50,1);			
+			// converse of above
+			BallsLeft.push(number);
+			$(".ball"+String(number)).fadeTo(50,1);			
 		}
+		// if all balls clicked it asks to start new game.
 		if (BallsLeft.length===0){
 			var r=confirm("New Game?");
-			if (r==true){ Setup();}
-			
+			if (r==true){ Setup();}			
 		}
+	} // toggleOpacity
+	 
+	function verifyPassword(number){
+		// checks if password has been set yet
+		if (playerPasswords[number]===''){
+			updatePlayerModal(number);
+		}
+		else{
+			verifyPasswordModal(number);
+		}
+	} //verify Password		
 
-	}
+
+	function verifyPasswordModal(number){
+		// Initializes Verify password Modal
+		showPasswordDialog(number);
+		$("#passDialog").html("Enter Password: <input id='password' value=''>");	
+		$('#passDialog').dialog('option', 'title', "Verifying "+playerNames[i] +"'s Password");
+	} // verifyPasswordModal
+
+
+	function showPasswordDialog(number){
+		// Shows verify password dialog, and then initializes ball dialog if password is correct
+		$( "#passDialog" ).dialog({
+			position: { my: "center"},
+			width:'100%',
+			modal:true,
+			closeOnEscape:true,
+		  dialogClass: "no-close",
+		  buttons: [
+		  	{
+		    	class:"btn btn-default",
+		      text: "Cancel",
+		      click: function() {
+			      $('#passDialog').html("");
+			      $( this ).dialog( "close" );
+		      }
+		    },
+		    {
+		    	class:"btn btn-default",
+		      text: "Submit",
+		      click: function() {
+		      // if password is correct, show balls
+						if (playerPasswords[number]===$("#password").val()){
+							updatePlayerModal(number);
+							$( this ).dialog( "close" );
+						}
+						else {
+						// else try again
+							$("#passDialog").html("<span style='color:red'><b> Invalid Password</b></span></br>Enter Password: <input id='password' value=''>");				
+						}
+
+		      }
+		    }
+		  ]
+		});		
+	} //showPasswordDialog
+		
+function changePasswordDialog(number){
+	// initializes and shows dialog to change password
+		$( "#changePassDialog" ).dialog({
+			position: { my: "center"},
+			width:'100%',
+			modal:true,
+			closeOnEscape:true,
+		  dialogClass: "no-close",
+		  buttons: [
+		    {
+		    	class:"btn btn-default",
+		      text: "Cancel",
+		      click: function() {
+		        $( this ).dialog( "close" );
+		      }
+		    },
+		    {
+		    	class:"btn btn-default",
+		      text: "Done",
+		      click: function() {
+		      	// if password original is correct change it to new password
+						if (playerPasswords[number]===$("#oldpass").val()){
+							playerPasswords[number]=$("#newpass").val();
+							$( this ).dialog( "close" );
+						}
+						else{
+						// else try again
+							$("#changePassDialog").html("<span style='color:red'>Wrong old password</span><br> Enter Old Password: <input id='oldpass' value=''><br> Enter New Password: <input id='newpass' value=''><br>");
+						}
+
+		      }
+		    }
+		  ]
+		});
+		if (playerPasswords[number]===''){
+			$("#changePassDialog").html("Enter New Password: <input type='hidden' id='oldpass' > <input id='newpass' value=''><br>");
+		}
+		else{
+			$("#changePassDialog").html("Enter Old Password: <input id='oldpass' value=''><br> Enter New Password: <input id='newpass' value=''><br>");			
+		}
+		$('#changePassDialog').dialog('option', 'title', 'Changing Password');				
+	}	// changePasswordDialog
+
+
+	function showBallDialog(number){
+	// shows balls
+		if (playerPasswords[number] === ''){
+			var buttonName='Create Password';
+		}
+		else{
+			var buttonName='Change Password';
+		}
+		
+		$( "#ballDialog" ).dialog({
+			position: { my: "center"},
+			width:'100%',
+			modal:true,
+			closeOnEscape:true,
+		  dialogClass: "no-close",
+		  buttons: [
+		    {
+		    	class:"btn btn-default",
+		      text: buttonName,
+		      click: function() {
+		      	changePasswordDialog(number);
+		        $( this ).dialog( "close" );
+		      }
+		      },
+		    {
+		    class:"btn btn-default",
+		      text: "Done",
+		      click: function() {
+		        $( this ).dialog( "close" );
+		      }
+		    }		    
+		  ]
+		});		
+		} //showBallDialog
 	
 	function updatePlayerModal(number){
-	
-	var balls = String(Players[number].sort(function(a,b){return a - b}))
-	//balls = "Your "+keyword+balls.substring(0,balls.length-1).replace(/,/g,', ');
-	var body = "";
-	for (i=0;i<num_balls;i++){
-		var cO = $(".ball"+String(Players[number][i])).css('opacity');
-		body+='<span 	style="margin:0px 5px 0px 0px;opacity:'+String(cO)+'" class="ball'+String(Players[number][i])+'"></span>';
-	}
-$( "#ballDialog" ).dialog({
-	position: { my: "center",of:body },
-	width:'100%',
-	modal:true,
-	closeOnEscape:true,
-  dialogClass: "no-close",
-  buttons: [
-    {
-      text: "Done",
-      click: function() {
-        $( this ).dialog( "close" );
-      }
-    }
-  ]
-});
-$("#ballDialog").html("<br><div style='text-align:center'>"+body+"</div>");	
-$('#ballDialog').dialog('option', 'title', 'Player '+number+"'s Balls");
-
-	}
+	// gets what balls the player has
+		var balls = String(Players[number].sort(function(a,b){return a - b}))
+		//balls = "Your "+keyword+balls.substring(0,balls.length-1).replace(/,/g,', ');
+		var body = "";
+		for (i=0;i<num_balls;i++){
+			// adds all the balls to the dialog
+			var cO = $(".ball"+String(Players[number][i])).css('opacity');
+			body+='<span 	style="margin:0px 5px 0px 0px;opacity:'+String(cO)+'" class="ball'+String(Players[number][i])+'"></span>';
+		}
+		showBallDialog(number);
+		$("#ballDialog").html("<br><div style='text-align:center'>"+body+"</div>");	
+		$('#ballDialog').dialog('option', 'title', playerNames[number] +"'s Balls");
+	}//updatePlayerModal
 	
   function new_game(num_balls,num_players){
+  // starts a new game
     BallsLeft = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
     for (i=1;i<16;i++){
 	    $(".ball"+String(i)).fadeTo("fast",1);		
@@ -232,8 +400,10 @@ $('#ballDialog').dialog('option', 'title', 'Player '+number+"'s Balls");
 				Players[i][j]=ball;
 			}
 		}
-	}
+	} //new_game
+	
 Array.prototype.removeByValue = function(val) {
+// allows to remove from array by value
     for(var i=0; i<this.length; i++) {
         if(this[i] == val) {
             this.splice(i, 1);
