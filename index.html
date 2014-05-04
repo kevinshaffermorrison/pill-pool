@@ -139,8 +139,10 @@
 
 	  	num_players=$("#num_players").val();
 	  	num_balls=$("#num_balls").val();
-	  	if (num_balls*num_players > 15 ){
-		  	alert("That's not gonna work!");
+	  	var ballsNum = Number(num_balls);
+	  	var playersNum = Number(num_balls);
+	  	console.log(ballsNum*playersNum);
+	  	if (playersNum*ballsNum > 15 || playersNum*ballsNum < 1){
 		  	$("#num_players option[value=default]").attr('selected', 'selected');
 		  	$("#num_balls option[value=default]").attr('selected', 'selected');
 
