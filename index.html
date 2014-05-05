@@ -122,8 +122,8 @@ $(function() {
   	num_players=$("#num_players").val();
   	num_balls=$("#num_balls").val();
   	var ballsNum = Number(num_balls);
-  	var playersNum = Number(num_balls);
-  	console.log(ballsNum*playersNum);
+  	var playersNum = Number(num_players);
+  	console.log("product="+String(ballsNum*playersNum));
   	if (playersNum*ballsNum > 15 || playersNum*ballsNum < 1){
   	// Makes sure values work
 	  	$("#num_players option[value=default]").attr('selected', 'selected');
@@ -169,7 +169,8 @@ $(function() {
   	// Build dialog body
   	$("#settingsDialog").append("<table>");
   	for (i=1;i<=num_players;i++){
-  	$("#settingsDialog").append("<tr><td>"+playerNames[i]+"'s Name: </td><td><input style='width:100px;margin-left:5px' type='text' id='playerName"+String(i)+"' value=''></td></tr>");}
+			if (i===1){var focus="autofocus"} else {var focus=""}
+  	$("#settingsDialog").append("<tr><td>"+playerNames[i]+"'s Name: </td><td><input "+focus+" style='width:100px;margin-left:5px' type='text' id='playerName"+String(i)+"' value=''></td></tr>");}
   	$("#settingsDialog").append("</table>");
   	// Initialize Dialog
 		$( "#settingsDialog" ).dialog({
@@ -213,9 +214,24 @@ $(function() {
 		// Get current ball state
 		var currentOpacity = $(".ball"+String(number)).css('opacity');
 		if (currentOpacity === '1' ){
-			// if ball wasn't shaded, remove from balls left and shade it 
+			// if ball wasn't shaded, remove from balls left and shade it
 			BallsLeft.removeByValue(number);
 			$(".ball"+String(number)).fadeTo(50,.25);
+			// Check if there is only one player left
+			for (i=1;i<=num_players;i++){
+				PlayersCopy[i].removeByValue(number);
+				if (PlayersCopy[i].length===1){
+					PlayersLeft.removeByValue(i);
+				}
+			}
+			// If only one player left, ask to play again
+			if (keepGoing===false){
+				if (PlayersLeft.length===2){
+					var r=confirm(playerNames[PlayersLeft[1]]+" Wins! Play Again?");
+				if (r==true){ Setup();}
+					keepGoing=true
+				}
+			}
 		}
 		else {
 			// converse of above
@@ -223,10 +239,10 @@ $(function() {
 			$(".ball"+String(number)).fadeTo(50,1);			
 		}
 		// if all balls clicked it asks to start new game.
-		if (BallsLeft.length===0){
-			var r=confirm("New Game?");
-			if (r==true){ Setup();}			
-		}
+//			if (BallsLeft.length===0){
+//				var r=confirm("New Game?");
+//			if (r==true){ Setup();}			
+//			}
 	} // toggleOpacity
 	 
 	function verifyPassword(number){
@@ -243,8 +259,8 @@ $(function() {
 	function verifyPasswordModal(number){
 		// Initializes Verify password Modal
 		showPasswordDialog(number);
-		$("#passDialog").html("Enter Password: <input id='password' value=''>");	
-		$('#passDialog').dialog('option', 'title', "Verifying "+playerNames[i] +"'s Password");
+		$("#passDialog").html("Enter Password: <input autofocus type='password' id='password' value=''>");	
+		$('#passDialog').dialog('option', 'title', "Verifying "+playerNames[number] +"'s Password");
 	} // verifyPasswordModal
 
 
@@ -276,7 +292,7 @@ $(function() {
 						}
 						else {
 						// else try again
-							$("#passDialog").html("<span style='color:red'><b> Invalid Password</b></span></br>Enter Password: <input id='password' value=''>");				
+							$("#passDialog").html("<span style='color:red'><b> Invalid Password</b></span></br>Enter Password: <input autofocus type='password' id='password' value=''>");				
 						}
 
 		      }
@@ -312,7 +328,7 @@ function changePasswordDialog(number){
 						}
 						else{
 						// else try again
-							$("#changePassDialog").html("<span style='color:red'>Wrong old password</span><br> Enter Old Password: <input id='oldpass' value=''><br> Enter New Password: <input id='newpass' value=''><br>");
+							$("#changePassDialog").html("<span style='color:red'>Wrong old password</span><br> Enter Old Password: <input autofocus type='password' id='oldpass' value=''><br> Enter New Password: <input type='password' id='newpass' value=''><br>");
 						}
 
 		      }
@@ -320,10 +336,10 @@ function changePasswordDialog(number){
 		  ]
 		});
 		if (playerPasswords[number]===''){
-			$("#changePassDialog").html("Enter New Password: <input type='hidden' id='oldpass' > <input id='newpass' value=''><br>");
+			$("#changePassDialog").html("Enter New Password: <input type='hidden' id='oldpass' > <input autofocus type='password' id='newpass' value=''><br>");
 		}
 		else{
-			$("#changePassDialog").html("Enter Old Password: <input id='oldpass' value=''><br> Enter New Password: <input id='newpass' value=''><br>");			
+			$("#changePassDialog").html("Enter Old Password: <input id='oldpass' value=''><br> Enter New Password: <input type='password' id='newpass' value=''><br>");			
 		}
 		$('#changePassDialog').dialog('option', 'title', 'Changing Password');				
 	}	// changePasswordDialog
@@ -380,6 +396,7 @@ function changePasswordDialog(number){
 	}//updatePlayerModal
 	
   function new_game(num_balls,num_players){
+  	keepGoing=false;
   // starts a new game
     BallsLeft = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
     for (i=1;i<16;i++){
@@ -390,14 +407,20 @@ function changePasswordDialog(number){
 		  balls[i-1]=i;
 	  }
 	  Players = new Array();
+	  PlayersCopy = new Array();
+	  PlayersLeft = new Array();
 	  for (j=1;j<=num_players;j++){
 	  	Players[j] = new Array();
+	  	PlayersCopy[j] = new Array();
+	  	PlayersLeft[j]=j;
+	  	console.log('yo');
 	  }	
 	  for (j=1;j<=num_balls;j++){
 	  	for (i=1;i<=num_players;i++) {
 	  		var ball = balls[Math.floor(Math.random()*balls.length)];
 				balls.removeByValue(ball);
 				Players[i][j]=ball;
+				PlayersCopy[i][j]=ball;
 			}
 		}
 	} //new_game
